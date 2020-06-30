@@ -1,0 +1,23 @@
+<div class="container">
+    <h1 class="mb-4">Blog Articles</h1>
+    <a href="/new" class="btn btn-success">New Article</a>
+
+    <% articles.forEach(article => { %>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h4 class="card-title"><%= article.title %></h4>
+                <div class="card-subtitle text-muted">
+                    <%=  article.createdAt.toLocaleDateString() %>
+                </div>
+                <div class="card-text mb-2">
+                    <%=  article.description %>
+                </div>
+                <a href="/<%= article.id %>" class="btn btn-primary">Read More</a>
+                <form action="/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </div>
+
+        </div>
+    <% }); %>
+</div>
